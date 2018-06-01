@@ -20,6 +20,7 @@ HRESULT __stdcall Hooked_EndScene(IDirect3DDevice9 * pDevice) // our hooked ends
 {
 	DrawManager DrawMng; // Yay we are using our class to do stuff.
 	DrawMng.BeginRender(pDevice); // Tell our Hacked Client that we are going to draw stuff and dont fuck up.
+	// Put Render Draw here
 	if (!pFont)
 	{
 		D3DXCreateFontA(pDevice, 24, 0, FW_DONTCARE, 0, FALSE, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, ANTIALIASED_QUALITY, DEFAULT_PITCH, "Arial", &pFont);
@@ -29,7 +30,7 @@ HRESULT __stdcall Hooked_EndScene(IDirect3DDevice9 * pDevice) // our hooked ends
 	{
 		DrawMng.Write(pFont, pDevice, "Sample Text", 75, 25, 24);
 	}
-	// Put Render Draw here
+	
 	
 	DrawMng.DrawBox(pDevice, 25, 25, 25, 25);
 	DrawMng.DrawFillBox(pDevice, 25, 75, 25, 25);
